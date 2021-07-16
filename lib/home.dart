@@ -30,10 +30,27 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.search))
-        ],title: Text("App"),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+        ],
+        title: Text("App"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Michael"),
+              accountEmail: Text("forza@outlook.com"),
+              currentAccountPicture: GestureDetector(
+                child: CircleAvatar(
+                  backgroundColor: Colors.green,
+                  child: Icon(Icons.person, color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
