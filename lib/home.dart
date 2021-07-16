@@ -27,14 +27,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.lightBlue,
-        child: Column(
-          children: <Widget>[
-            Icon(Icons.person),
-            Text("Michael stateful", style: TextStyle(color: Colors.yellow)),
-            Icon(Icons.person)
-          ],
-        ));
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+
+        actions: <Widget>[
+          IconButton(onPressed: () {}, icon: Icon(Icons.search))
+        ],title: Text("App"),
+      ),
+    );
   }
 }
