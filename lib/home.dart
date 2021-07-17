@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:carousel_slider/carousel_slider.dart';
 
 // class HomePage extends StatelessWidget {
 //   const HomePage({Key? key}) : super(key: key);
@@ -27,6 +28,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    Widget carouselWidget = new Container(
+      child: new CarouselSlider(
+          items: <Widget>[
+            Image.asset("images/carousels/1.jpg"),
+            Image.asset("images/carousels/2.jpg"),
+            Image.asset("images/carousels/3.jpg"),
+            Image.asset("images/carousels/4.jpg")
+          ],
+          options: new CarouselOptions(
+            height: 400,
+            aspectRatio: 16 / 9,
+            autoPlay: false,
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+          )),
+    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -99,6 +116,9 @@ class _HomePageState extends State<HomePage> {
                 )),
           ],
         ),
+      ),
+      body: new ListView(
+        children: [carouselWidget],
       ),
     );
   }
