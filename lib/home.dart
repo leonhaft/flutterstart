@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(
                       children: <Widget>[
-                        Image.asset(item, fit: BoxFit.cover, width: 700.0),
+                        Image.asset(item, fit: BoxFit.cover, width: 200.0),
                         Positioned(
                           bottom: 0.0,
                           left: 0.0,
@@ -64,17 +64,8 @@ class _HomePageState extends State<HomePage> {
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,
                               ),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10.0, horizontal: 20.0),
-                            child: Text(
-                              'No. ${imgList.indexOf(item)} image',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            )
+
                           ),
                         ),
                       ],
@@ -97,7 +88,7 @@ class _HomePageState extends State<HomePage> {
       child: new CarouselSlider(
           items: imageSliders,
           options: new CarouselOptions(
-              height: 400,
+              height: 200,
               aspectRatio: 16 / 9,
               autoPlay: false,
               autoPlayAnimationDuration: Duration(milliseconds: 800),
