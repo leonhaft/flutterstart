@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutterstart/components/categoryComponent.dart';
 
 // class HomePage extends StatelessWidget {
 //   const HomePage({Key? key}) : super(key: key);
@@ -39,9 +40,18 @@ class _HomePageState extends State<HomePage> {
     'images/carousels/black_1.png'
   ];
 
+  final jdImgList = [
+    'images/jd/1.webp',
+    'images/jd/2.webp',
+    'images/jd/3.webp',
+    'images/jd/4.webp',
+    'images/jd/5.webp',
+    'images/jd/6.webp',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final List<Widget> imageSliders = imgList
+    final List<Widget> imageSliders = jdImgList
         .map((item) => Container(
               child: Container(
                 margin: EdgeInsets.all(5.0),
@@ -49,24 +59,22 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(
                       children: <Widget>[
-                        Image.asset(item, fit: BoxFit.cover, width: 200.0),
+                        Image.asset(item, fit: BoxFit.cover,height: 200),
                         Positioned(
                           bottom: 0.0,
                           left: 0.0,
                           right: 0.0,
                           child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(200, 0, 0, 0),
-                                  Color.fromARGB(0, 0, 0, 0)
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                              ),
-                            )
-
-                          ),
+                              decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(200, 0, 0, 0),
+                                Color.fromARGB(0, 0, 0, 0)
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                            ),
+                          )),
                         ),
                       ],
                     )),
@@ -88,7 +96,7 @@ class _HomePageState extends State<HomePage> {
       child: new CarouselSlider(
           items: imageSliders,
           options: new CarouselOptions(
-              height: 200,
+              //height: 200,
               aspectRatio: 16 / 9,
               autoPlay: false,
               autoPlayAnimationDuration: Duration(milliseconds: 800),
@@ -177,7 +185,7 @@ class _HomePageState extends State<HomePage> {
           carouselWidget,
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: imgList.asMap().entries.map((entry) {
+            children: jdImgList.asMap().entries.map((entry) {
               return GestureDetector(
                 onTap: () => _controller.animateToPage(entry.key),
                 child: Container(
@@ -193,7 +201,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             }).toList(),
-          )
+          ),
+           CategoriesWidget()
         ],
       ),
     );

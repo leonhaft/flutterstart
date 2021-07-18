@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'device.dart';
 import "home.dart";
 void main() {
   runApp(MaterialApp(
