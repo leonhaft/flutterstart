@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+import 'package:flutterstart/models/category.dart';
 
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({Key? key}) : super(key: key);
@@ -12,36 +13,30 @@ class CategoriesWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           CategoryWidget(
-              category: Category("images/cats/tshirt.png", "tshirt", "tshirt")),
+              category: ProductCategory("images/cats/tshirt.png", "tshirt", "tshirt")),
           CategoryWidget(
-              category: Category("images/cats/shoe.png", "shoe", "shoe")),
+              category: ProductCategory("images/cats/shoe.png", "shoe", "shoe")),
           CategoryWidget(
-              category: Category("images/cats/jeans.png", "jeans", "jeans")),
+              category: ProductCategory("images/cats/jeans.png", "jeans", "jeans")),
           CategoryWidget(
-              category: Category("images/cats/informal.png", "informal", "informal")),
+              category: ProductCategory("images/cats/informal.png", "informal", "informal")),
           CategoryWidget(
-              category: Category("images/cats/formal.png", "formal", "formal")),
+              category: ProductCategory("images/cats/formal.png", "formal", "formal")),
           CategoryWidget(
-              category: Category("images/cats/dress.png", "dress", "dress")),
+              category: ProductCategory("images/cats/dress.png", "dress", "dress")),
           CategoryWidget(
-              category: Category("images/cats/accessories.png", "accessories", "accessories")),
+              category: ProductCategory("images/cats/accessories.png", "accessories", "accessories")),
         ],
       ),
     );
   }
 }
 
-class Category {
-  final String icon;
-  final String title;
-  final String caption;
 
-  Category(this.icon, this.title, this.caption);
-}
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({Key? key, required this.category}) : super(key: key);
-  final Category category;
+  final ProductCategory category;
 
   @override
   Widget build(BuildContext context) {

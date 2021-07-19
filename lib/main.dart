@@ -5,7 +5,7 @@ import "ioprovider.dart";
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-      home: DevicePage()));
+      home: HomePage()));
 }
 
 
