@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:device_info/device_info.dart';
+import 'package:path_provider/path_provider.dart';
 
 class DevicePage extends StatefulWidget {
   const DevicePage({Key? key}) : super(key: key);
@@ -28,10 +31,25 @@ class _DevicePageState extends State<DevicePage> {
               child: Text('Show Cupertino Dialog'),
               onPressed: showDevice,
             ),
+            ElevatedButton(onPressed: createFile, child: Text("Create File"))
           ],
         ),
       ),
     );
+  }
+
+  createFile() async {
+    var dir = await getExternalStorageDirectory();
+
+    var fileName = "${dir!.path}/sample_${DateTime.now().day}.json";
+    print("文件名:$fileName");
+    var file = File(fileName);
+    if (file.existsSync()) {
+      print('文件已存在');
+    } else {
+      file.writeAsString("文本");
+      print('文件已创建');
+    }
   }
 
   showDevice() async {
@@ -39,8 +57,8 @@ class _DevicePageState extends State<DevicePage> {
     AndroidDeviceInfo android = await deviceInfo.androidInfo;
     print('Running on ${android.model}');
     print('Device display:${android.display}');
-    final  double height=MediaQuery.of(context).size.height;
-    final  double width=MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
 
     print('Device display:$height*$width');
   }
